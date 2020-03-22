@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before-install:
+    - docker build -t satya323/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true satya323/docker-rect npm run test
